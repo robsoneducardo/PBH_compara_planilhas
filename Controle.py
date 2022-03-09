@@ -72,10 +72,25 @@ class Controle:
             for ordinal, j in enumerate(colunas_que_importam):
                 conteudo_esocial, conteudo_arterh = get_string_celula(self.__planilha_esocial,
                         self.__planilha_candidata, i, j, ordinal)
-
                 if conteudo_esocial != conteudo_arterh:
-                    #conteudo_esocial = colored('\033[4m' + conteudo_esocial + '\033[0m', 'red')
+                    self.__relatorio.write(f"{colunas[j]}{i+1}")
+                self.__relatorio.write("||")
+            self.__relatorio.write("\n")
 
-                    self.__relatorio.write(f"{colunas[j]}{i+1}:\n")
-                    self.__relatorio.write(f"{conteudo_esocial}\n")
-                    self.__relatorio.write(f"{conteudo_arterh}\n\n")
+            for ordinal, j in enumerate(colunas_que_importam):
+                conteudo_esocial, conteudo_arterh = get_string_celula(self.__planilha_esocial,
+                        self.__planilha_candidata, i, j, ordinal)
+                if conteudo_esocial != conteudo_arterh:
+                    self.__relatorio.write(f"{conteudo_esocial}")
+                self.__relatorio.write("||")
+            self.__relatorio.write("\n")
+
+            for ordinal, j in enumerate(colunas_que_importam):
+                conteudo_esocial, conteudo_arterh = get_string_celula(self.__planilha_esocial,
+                        self.__planilha_candidata, i, j, ordinal)
+                if conteudo_esocial != conteudo_arterh:
+                    self.__relatorio.write(f"{conteudo_arterh}")
+                self.__relatorio.write("||")
+            self.__relatorio.write("\n")
+
+# Eu não tenho controle sobre o relatório, logo não o fecho neste ponto da execução.

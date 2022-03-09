@@ -63,7 +63,7 @@ class MainForm (Tk):
         
         def lbl_relatorio_click() -> None:
             try:
-                with fd.asksaveasfile(filetypes=(('text file', '*.txt'),)) as relatorio:
+                with fd.asksaveasfile(filetypes=(('csv sheet', '*.csv'),)) as relatorio:
                     self.__controle.set_relatorio(relatorio)
                     self.lbl_relatorio.config(text="Relatorio: " + relatorio.name)
                     self.__relatorio = relatorio.name
